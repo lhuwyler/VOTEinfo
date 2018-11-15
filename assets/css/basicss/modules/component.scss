@@ -1,0 +1,214 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: $lightgrey;
+    color: $darkgrey;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+header {
+  position: relative;
+  background-color: $darkgrey;
+  overflow-y: auto;
+}
+
+.pageContent {
+  position: relative;
+  min-height: calc(100% - 124px);
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+footer {
+  min-height: 200px;
+  background-color: $white;
+}
+
+.wrapper {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+
+.logo {
+  font-size: 45px;
+  font-weight: 800;
+  font-family: 'Open Sans Condensed';
+  display: block;
+  width: 100%;
+  margin: 15px 0 20px 0;
+  color: $lightgrey;
+  display: block;
+  transition: 0.5s all ease;
+
+  &:hover {
+    color: $color1;
+  }
+}
+
+.mainNav {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  li>a {
+    display: block;
+    width: auto;
+    padding-bottom: 10px;
+    margin-right: 30px;
+    color: $lightgrey;
+    transition: 0.5s all ease;
+    float: left;
+    border-bottom: 5px solid $darkgrey;
+  }
+  .mainNav__emojii {
+    font-size: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  li>a:hover, li>a.active {
+    border-bottom: 5px solid $color1;
+  }
+}
+
+.subNav {
+  background-color: $white;
+  overflow: auto;
+  white-space: nowrap;
+  ul {
+    text-decoration: none;
+    margin: 0;
+    padding: 0 20px;
+  }
+  li {
+    display: inline-block;
+  }
+  strong {
+    margin-right: 10px;
+  }
+  a {
+    display: inline-block;
+    padding: 15px;
+    color: $darkgrey;
+    border-left: 1px solid $lightgrey;
+  }
+  a:hover, a.active {
+    background-color: $lightgrey;
+  }
+}
+
+.jumbotron {
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/lucerne.jpg');
+  background-size: cover;
+  padding: 10px;
+  h1 {
+    font-size: 60px;
+    color: $white;
+    text-shadow: 0 0 200px #222;
+  }
+}
+
+#loading {
+  position: absolute;
+  top: 0;
+  text-align: center;
+  padding: 100px;
+  width: 100%;
+  height: 100%;
+  background-color: $lightgrey;
+  z-index: 50;
+}
+
+.vote {
+  background-color: $white;
+  padding: 15px;
+  color: $darkgrey;
+  transition: 0.3s all ease;
+  margin-bottom: 25px;
+}
+
+a .vote:hover {
+  box-shadow: 0 0 30px -5px #aaa;
+}
+
+.region {
+  display: block;
+  background-color: $white;
+  padding: 15px;
+  color: $darkgrey;
+  transition: 0.3s all ease;
+  margin-bottom: 25px;
+  font-size: 20px;
+
+  &:hover {
+    box-shadow: 0 0 30px -5px #aaa;
+  }
+}
+
+.canton_selector {
+  margin-top: -60px;
+}
+
+.ranking {
+  padding: 0;
+  list-style: decimal;
+  list-style-position: inside;
+  a {
+    color: $darkgrey;
+  }
+  li::before {
+    content: "";
+    width: 20px;
+    display: inline-block;
+  }
+  li {
+    margin-bottom: 10px;
+    background-color: $white;
+    padding: 10px;
+    transition: 0.3s all ease;
+  }
+  li:hover {
+    box-shadow: 0 0 30px -5px #aaa;
+  }
+}
+
+.ranking--pro {
+  a:nth-child(1) li{
+    background-color: $green;
+  }
+  a:nth-child(2) li{
+    background-color: $green2;
+  }
+  a:nth-child(3) li{
+    background-color: $green3;
+  }
+}
+
+.ranking--contra {
+  a:nth-child(1) li{
+    background-color: $red;
+  }
+  a:nth-child(2) li{
+    background-color: $red2;
+  }
+  a:nth-child(3) li{
+    background-color: $red3;
+  }
+}

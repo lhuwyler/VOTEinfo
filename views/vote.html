@@ -1,0 +1,30 @@
+{% extends "./layouts/page.html" %}
+
+{% block content %}
+  <div class="wrapper">
+    <h1>{{ vote.vote }}</h1>
+    <p>Durchgeführt am <strong>{{ vote.date }}</strong></p>
+    <h2>Gesamtresultat</h2>
+    <div class="vote">
+      <div class="vote__results" data-yes="{{ vote.votesYesPercent }}" data-no="{{ 100 - vote.votesYesPercent }}"></div>
+      <div class="vote__cantons" data-yes="" data-no=""></div>
+      <div class="vote__turnout" data-percent="{{ vote.voterTurnOut }}"></div>
+    </div>
+    <h2>Stände</h2>
+    <div class="canton_results" data-percent="{% for canton in cantons %}{{canton.votesYesPercent}},{% endfor %}"></div>
+    <h2>Wahlbeteiligung</h2>
+    <div class="canton_turnOut" data-percent="{% for canton in cantons %}{{canton.voterTurnOut}},{% endfor %}"></div>
+    <h2>Grösste Befürworter</h2>
+    <ol class="ranking ranking--pro">
+      <a href="#"><li>{{ ranking[0].canton}} ({{ ranking[0].votesYesPercent }}%)</li></a>
+      <a href="#"><li>{{ ranking[1].canton}} ({{ ranking[1].votesYesPercent }}%)</li></a>
+      <a href="#"><li>{{ ranking[2].canton}} ({{ ranking[2].votesYesPercent }}%)</li></a>
+    </ol>
+    <h2>Grösste Gegner</h2>
+    <ol class="ranking ranking--contra">
+      <a href="#"><li>{{ ranking[25].canton}} ({{ ranking[25].votesYesPercent }}%)</li></a>
+      <a href="#"><li>{{ ranking[24].canton}} ({{ ranking[24].votesYesPercent }}%)</li></a>
+      <a href="#"><li>{{ ranking[23].canton}} ({{ ranking[23].votesYesPercent }}%)</li></a>
+    </ol>
+  </div>
+{% endblock %}

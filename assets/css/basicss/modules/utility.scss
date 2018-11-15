@@ -1,0 +1,255 @@
+/*=====================================================
+ Text Alignment
+======================================================*/
+
+.u-alignCenter {
+    text-align: center;
+}
+
+.u-alignRight {
+    text-align: right;
+}
+
+.u-alignLeft {
+    text-align: left;
+}
+
+.u-alignJustify {
+    text-align: justify;
+}
+
+.u-alignVerticalCenter {
+    /* Usage Info:
+        Class can be used to vertically center a block within his parent element and must be applied to that parent element.
+        The parent element, on which it is applied, must...
+        - only have blocks as children
+        - have a certain hight (either define a static hight
+          or use :after element in case of a collapsed block)
+    */
+    display: flex;
+    align-items: center;
+}
+
+/*=====================================================
+ Text Formatting
+======================================================*/
+
+.u-textBold {
+  font-weight: bold;
+}
+
+.u-textItalic {
+  font-style: italic;
+}
+
+.u-textUppercase {
+  text-transform: uppercase;
+}
+
+/*=====================================================
+ Cursor  Interaction
+======================================================*/
+
+.u-clickable {
+  cursor: pointer;
+}
+
+/*=====================================================
+ Visability (for ex. in combination with js effects)
+======================================================*/
+
+.u-hidden {
+    display: none;
+}
+
+.u-block {
+    display: block;
+}
+
+.u-inlineBlock {
+    display: inline-block;
+}
+
+.u-inline {
+    display: inline;
+}
+
+/*=====================================================
+ Size
+======================================================*/
+
+.u-fullWidth {
+  width: 100% !important;
+}
+
+/*=====================================================
+ Floating
+======================================================*/
+
+.u-floatRight {
+    float: right;
+}
+
+.u-floatLeft {
+    float: left;
+}
+
+.u-clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/*=====================================================
+ Block Paddings
+======================================================*/
+
+.u-padding--huge {
+    padding: $padding-huge;
+}
+
+.u-padding--huge-t {
+    padding-top: $padding-huge;
+}
+
+.u-padding--huge-r {
+    padding-right: $padding-huge;
+}
+
+.u-padding--huge-b {
+    padding-bottom: $padding-huge;
+}
+
+.u-padding--huge-l {
+    padding-left: $padding-huge;
+}
+
+.u-padding--huge-tb {
+    padding-top: $padding-huge;
+    padding-bottom: $padding-huge;
+}
+
+.u-padding--huge-lr {
+    padding-left: $padding-huge;
+    padding-right: $padding-huge;
+}
+
+.u-padding--large {
+    padding: $padding-large;
+}
+
+.u-padding--large-t {
+    padding-top: $padding-large;
+}
+
+.u-padding--large-r {
+    padding-right: $padding-large;
+}
+
+.u-padding--large-b {
+    padding-bottom: $padding-large;
+}
+
+.u-padding--large-l {
+    padding-left: $padding-large;
+}
+
+.u-padding--large-tb {
+    padding-top: $padding-large;
+    padding-bottom: $padding-large;
+}
+
+.u-padding--large-lr {
+    padding-left: $padding-large;
+    padding-right: $padding-large;
+}
+
+.u-padding--medium {
+    padding: $padding-medium;
+}
+
+.u-padding--medium-t {
+    padding-top: $padding-medium;
+}
+
+.u-padding--medium-r {
+    padding-right: $padding-medium;
+}
+
+.u-padding--medium-b {
+    padding-bottom: $padding-medium;
+}
+
+.u-padding--medium-l {
+    padding-left: $padding-medium;
+}
+
+.u-padding--medium-tb {
+    padding-top: $padding-medium;
+    padding-bottom: $padding-medium;
+}
+
+.u-padding--medium-lr {
+    padding-left: $padding-medium;
+    padding-right: $padding-medium;
+}
+
+.u-padding--small {
+    padding: $padding-small;
+}
+
+.u-padding--small-t {
+    padding-top: $padding-small;
+}
+
+.u-padding--small-r {
+    padding-right: $padding-small;
+}
+
+.u-padding--small-b {
+    padding-bottom: $padding-small;
+}
+
+.u-padding--small-l {
+    padding-left: $padding-small;
+}
+
+.u-padding--small-tb {
+    padding-top: $padding-small;
+    padding-bottom: $padding-small;
+}
+
+.u-padding--small-lr {
+    padding-left: $padding-small;
+    padding-right: $padding-small;
+}
+
+.u-padding--tiny {
+    padding: $padding-tiny;
+}
+
+.u-padding--tiny-t {
+    padding-top: $padding-tiny;
+}
+
+.u-padding--tiny-r {
+    padding-right: $padding-tiny;
+}
+
+.u-padding--tiny-b {
+    padding-bottom: $padding-tiny;
+}
+
+.u-padding--tiny-l {
+    padding-left: $padding-tiny;
+}
+
+.u-padding--tiny-tb {
+    padding-top: $padding-tiny;
+    padding-bottom: $padding-tiny;
+}
+
+.u-padding--tiny-lr {
+    padding-left: $padding-tiny;
+    padding-right: $padding-tiny;
+}

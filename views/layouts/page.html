@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head lang="de-CH">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>CHVOTE - Wie die Schweiz abstimmt</title>
+
+    <meta name="author" content="Lukas Huwyler, Benjamin Herger, Andreas Häberli, Jonas Stalder">
+    <link rel="canonical" href="{{ canonical }}">
+    <meta name="robots" content="index, follow">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="{{ color }}">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700|Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css?v=0.0.1">
+
+    <!-- ios and chrome icon (200pxx200px, NOT transparent) -->
+    <link rel="apple-touch-icon" href="{{ icon }}">
+    <!-- Generic icon (200pxx200px) -->
+    <link rel="icon" href="{{ icon }}">
+    <!-- Windows tile Color -->
+    <meta name="msapplication-TileColor" content="{{ color }}">
+
+    <meta name="description" content="{{ description }}">
+
+    <!-- open graph information (see og docs for extended syntax) -->
+    <meta property="og:url" content="{{ canonical }}">
+    <meta property="og:site_name" content="{{ og_name }}">
+    <meta property="og:title" content="{{ og_title }}">
+    <meta property="og:description" content="{{ og_description }}">
+    <meta property="og:image" content="{{ og_image_url }}">
+
+    <!-- add scripts here -->
+  </head>
+  <body>
+    <header>
+      <div class="wrapper">
+        <a href="/" class="logo">CHvote</a>
+        <nav class="mainNav">
+          <ul>
+            <li><a href="/votes" class="{% if page == 'votes' %}active{% endif %}"><span class="mainNav__emojii">🗳️</span>ABSTIMMUNGEN</a></li>
+            <li><a href="/regions" class="{% if page == 'regions' %}active{% endif %}"><span class="mainNav__emojii">🇨🇭️</span>REGIONEN</a></li>
+            <li><a href="/rankings" class="{% if page == 'rankings' %}active{% endif %}"><span class="mainNav__emojii">🏆️</span>RANGLISTEN</a></li>
+            <li><a href="/about" class="{% if page == 'about' %}active{% endif %}"><span class="mainNav__emojii">👨🏼‍🎓️</span>ABOUT</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <nav class="subNav">
+      {% block subNav %}
+      {% endblock %}
+    </nav>
+    <div class="pageContent">
+      <div id="loading">
+        <h2>Daten werden geladen...</h2>
+      </div>
+      {% block content %}
+      {% endblock %}
+    </div>
+    <footer>
+
+    </footer>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="/assets/js/charts.js"></script>
+  </body>
+</html>
