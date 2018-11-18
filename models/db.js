@@ -3,6 +3,7 @@ const nano = require('nano')('http://admin:password@localhost:5984')
 
 
 const votes = nano.db.use('votes');
+const cantons = nano.db.use('cantons');
 
 let functions = {}
 
@@ -21,7 +22,7 @@ functions.getVotes = function(callback){
   });
 }
 
-// Get results on federal level for all votes by year
+// Get results on federal level for all votes in a given year
 functions.getVotesByYear = function(year, callback){
   let q = {
     selector: {
@@ -39,31 +40,36 @@ functions.getVotesByYear = function(year, callback){
 
 // Get a vote by it's id
 functions.getVoteById = function(id, callback){
-  let q = {
-    selector: {
-      _id: { "$eq": id},
-    },
-    limit:1
-  }
-  votes.find(q).then((docs) => {
-    callback(docs.docs[0])
+  votes.get(id).then((body) => {
+    callback(body)
   });
 }
 
 // Get results on cantonal level for a vote
 functions.getCantonsByVote = function(name, callback){
-  let q = {
-    selector: {
-      canton: { "$ne": ""},
-      district: { "$eq": ""},
-      municipality: { "$eq": ""},
-      vote: { "$eq": name}
-    },
-    limit:100
-  }
-  votes.find(q).then((docs) => {
-    callback(docs.docs)
-  });
+  votes.view('votes', 'votes', {
+    'key': name,
+    'include_docs': true
+  }).then((body) => {
+    let cantons = []
+    body.rows.forEach((row) => {
+      cantons.push(row.doc)
+    })
+    callback(cantons)
+  })
+}
+
+// Get al ist of all Cantons
+functions.getCantonList = function(callback){
+  votes.view('cantons', 'cantons', {
+    group: true
+  }).then((body) => {
+    let cantons = []
+    body.rows.forEach((row) => {
+      cantons.push(row.key)
+    })
+    callback(cantons)
+  })
 }
 
 module.exports = functions

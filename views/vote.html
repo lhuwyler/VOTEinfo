@@ -7,7 +7,7 @@
     <h2>Gesamtresultat</h2>
     <div class="vote">
       <div class="vote__results" data-yes="{{ vote.votesYesPercent }}" data-no="{{ 100 - vote.votesYesPercent }}"></div>
-      <div class="vote__cantons" data-yes="" data-no=""></div>
+      <div class="vote__cantons" data-yes="{{ cantonVote }}" data-no="{{ 23 - cantonVote }}"></div>
       <div class="vote__turnout" data-percent="{{ vote.voterTurnOut }}"></div>
     </div>
     <h2>Stände</h2>

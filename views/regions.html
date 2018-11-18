@@ -3,12 +3,11 @@
 {% block content %}
   <div class="wrapper">
     <h1>Regionen</h1>
-    <a href="#" class="region">Ganze Schweiz</a>
+    <a href="/regions/switzerland" class="region">Ganze Schweiz</a>
     <h2>Kantone</h2>
-
-    <a href="#" class="region">Aargau</a>
-    <a href="#" class="region">Luzern</a>
-    <a href="#" class="region">Zürich</a>
+    {% for canton in cantons %}
+      <a href="/regions/canton/{{canton}}" class="region">{{canton}}</a>
+    {% endfor %}
     <h2>Gemeinden</h2>
     <a href="#" class="region">Aargau</a>
     <a href="#" class="region">Luzern</a>

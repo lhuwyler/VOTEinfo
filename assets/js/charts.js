@@ -115,9 +115,9 @@ function drawCharts(){
   }
 
   for(var i = 0; i < cantonCharts.length; i++){
-    let yes = parseInt(cantonCharts.item(i).dataset.yes);
-    let no = parseInt(cantonCharts.item(i).dataset.no);
-
+    let yes = parseFloat(cantonCharts.item(i).dataset.yes);
+    let no = parseFloat(cantonCharts.item(i).dataset.no);
+    
     let data = new google.visualization.arrayToDataTable([
       ['', '', { role: 'annotation' }, '', { role: 'annotation' }],
       ['Stände', yes, 'Ja (' + yes + ')', no, 'Nein (' + no + ')'],
