@@ -20,7 +20,7 @@ git clone https://github.com/lhuwyler/CHvote.git
 # Zum Projektverzeichnis wechseln
 cd CHvote
 # Dependencies installieren
-npm installieren
+npm install
 # Falls noch nicht vorhanden: nodemon installieren
 npm -g install nodemon
 # App starten
