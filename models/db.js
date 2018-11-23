@@ -8,27 +8,6 @@ const municipalities = nano.db.use('votes_municipalities');
 
 let functions = {}
 
-// Get results on federal level for all votes
-functions.getVotes = function(callback) {
-  let q = {
-    selector: {
-      canton: {
-        "$eq": ""
-      },
-      district: {
-        "$eq": ""
-      },
-      municipality: {
-        "$eq": ""
-      },
-    },
-    limit: 100
-  }
-  votes.find(q).then((docs) => {
-    callback(docs.docs)
-  });
-}
-
 // Get results on federal level for all votes in a given year
 functions.getVotesByYear = function(year, callback) {
   let q = {
@@ -57,13 +36,13 @@ functions.getVotesByYear = function(year, callback) {
 functions.getVoteById = function(id, callback) {
   votes.get(id).then((body) => {
     callback(body)
-  });
+  })
 }
 
-// Get results on cantonal level for a vote
-functions.getCantonsByVote = function(name, callback) {
+// Get results from all cantons for a vote
+functions.getCantonsByVote = function(name, year, callback) {
   votes.view('votes', 'votes', {
-    'key': name,
+    'key': name + year,
     'include_docs': true
   }).then((body) => {
     let cantons = []
@@ -74,7 +53,7 @@ functions.getCantonsByVote = function(name, callback) {
   })
 }
 
-// Get alist of all Cantons
+// Get a list of all Cantons
 functions.getCantonList = function(callback) {
   votes.view('cantons', 'cantons', {
     group: true
@@ -89,14 +68,26 @@ functions.getCantonList = function(callback) {
 
 // Get a list of all Municipalities
 functions.getMunicipalities = function(callback) {
-  municipalities.view('municipalities', 'municipalities', {
-    group: true
-  }).then((body) => {
+  municipalities.view('municipalities', 'municipalities_reduced', {}).then((body) => {
     let municipalities = []
     body.rows.forEach((row) => {
       municipalities.push(row.key)
     })
     callback(municipalities)
+  })
+}
+
+// Returns all votes for a Municipality
+functions.getVotesByMunicipality = function(municipality, callback){
+  municipalities.view('municipalities', 'municipalities', {
+    'key': municipality,
+    'include_docs': true
+  }).then((body) => {
+    let votes = []
+    body.rows.forEach((row) => {
+      votes.push(row.doc)
+    })
+    callback(votes)
   })
 }
 

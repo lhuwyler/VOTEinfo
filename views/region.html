@@ -1,0 +1,22 @@
+{% extends "./layouts/page.html" %}
+
+{% block content %}
+  <div class="wrapper">
+    <h1>{{ name }}</h1>
+    <p>Übersicht über die letzten Jahre seit 2001.</p>
+    <h2>Durchschnittliche Stimmbeteiligung</h2>
+    <h2>Gesamtresultate</h2>
+    {% for vote in votes %}
+      <a href="/votes/{{ vote._id }}">
+        <div class="vote">
+          <span class="vote__date">{{ vote.date }}</span>
+          <h3>{{ vote.vote }}</h3>
+          <div class="vote__results" data-yes="{{ vote.votesYesPercent }}" data-no="{{ 100 - vote.votesYesPercent }}"></div>
+          <div class="vote__turnout" data-percent="{{ vote.voterTurnOut }}"></div>
+        </div>
+      </a>
+    {% else %}
+      <p>Für diesen Ort sind leider keine Daten verfügbar.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

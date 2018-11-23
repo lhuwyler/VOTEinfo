@@ -31,5 +31,5 @@ app.use(function(error, req, res, next) {
 });
 
 app.listen(3000, function() {
-  console.log('CHVOTE is running...')
+  console.log('CHVOTE is running at port 3000...')
 })

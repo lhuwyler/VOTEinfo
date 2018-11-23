@@ -102,8 +102,8 @@ function drawCharts(){
   cantonTurnOut = document.getElementsByClassName("canton_turnOut");
 
   for(var i = 0; i < resultCharts.length; i++){
-    let yes = parseInt(resultCharts.item(i).dataset.yes);
-    let no = parseInt(resultCharts.item(i).dataset.no);
+    let yes = parseFloat(resultCharts.item(i).dataset.yes);
+    let no = parseFloat(resultCharts.item(i).dataset.no);
 
     let data = new google.visualization.arrayToDataTable([
       ['', '', { role: 'annotation' }, '', { role: 'annotation' }],
@@ -117,7 +117,7 @@ function drawCharts(){
   for(var i = 0; i < cantonCharts.length; i++){
     let yes = parseFloat(cantonCharts.item(i).dataset.yes);
     let no = parseFloat(cantonCharts.item(i).dataset.no);
-    
+
     let data = new google.visualization.arrayToDataTable([
       ['', '', { role: 'annotation' }, '', { role: 'annotation' }],
       ['Stände', yes, 'Ja (' + yes + ')', no, 'Nein (' + no + ')'],
@@ -128,7 +128,7 @@ function drawCharts(){
   }
 
   for(var i = 0; i < turnoutCharts.length; i++){
-    let percent = parseInt(turnoutCharts.item(i).dataset.percent);
+    let percent = parseFloat(turnoutCharts.item(i).dataset.percent);
 
     var data = new google.visualization.arrayToDataTable([
       ['', '', { role: 'annotation' }, '', { role: 'annotation' }],

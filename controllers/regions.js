@@ -15,4 +15,14 @@ router.get('/', function(req, res, next) {
   })
 });
 
+router.get('/municipality/:municipality', function(req, res, next) {
+  db.getVotesByMunicipality(req.params.municipality, function(votes){
+    res.render('region.html', {
+      page: 'regions',
+      name: req.params.municipality,
+      votes: votes
+    })
+  })
+})
+
 module.exports = router

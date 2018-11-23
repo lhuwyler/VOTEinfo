@@ -24,7 +24,7 @@ router.get('/:id', function(req, res, next) {
   // Get the vote the user clicked on
   db.getVoteById(req.params.id, function(vote){
     // Get results from all cantons for that vote
-    db.getCantonsByVote(vote.vote, function(cantons){
+    db.getCantonsByVote(vote.vote, vote.date, function(cantons){
       // Calculate Majority of the Cantons
       let cantonVote = 0
       // Cantons which only have half a vote
