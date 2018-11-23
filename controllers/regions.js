@@ -5,9 +5,12 @@ let router = express.Router()
 
 router.get('/', function(req, res, next) {
   db.getCantonList(function(cantons){
-    res.render('regions.html', {
-      page: 'regions',
-      cantons: cantons
+    db.getMunicipalities(function(municipalities){
+      res.render('regions.html', {
+        page: 'regions',
+        cantons: cantons,
+        municipalities: municipalities
+      })
     })
   })
 });

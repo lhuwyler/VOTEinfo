@@ -37,7 +37,7 @@ for row in csvFile:
     }
 
     req = requests.post(
-        "http://127.0.0.1:5984/votes",
+        "http://127.0.0.1:5984/votes_municipalities",
         json=jsonFile,
         auth=('admin', 'password')
     )

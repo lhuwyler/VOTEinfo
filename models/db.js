@@ -4,6 +4,7 @@ const nano = require('nano')('http://admin:password@localhost:5984')
 
 const votes = nano.db.use('votes');
 const cantons = nano.db.use('cantons');
+const municipalities = nano.db.use('votes_municipalities');
 
 let functions = {}
 
@@ -73,7 +74,7 @@ functions.getCantonsByVote = function(name, callback) {
   })
 }
 
-// Get al ist of all Cantons
+// Get alist of all Cantons
 functions.getCantonList = function(callback) {
   votes.view('cantons', 'cantons', {
     group: true
@@ -83,6 +84,19 @@ functions.getCantonList = function(callback) {
       cantons.push(row.key)
     })
     callback(cantons)
+  })
+}
+
+// Get a list of all Municipalities
+functions.getMunicipalities = function(callback) {
+  municipalities.view('municipalities', 'municipalities', {
+    group: true
+  }).then((body) => {
+    let municipalities = []
+    body.rows.forEach((row) => {
+      municipalities.push(row.key)
+    })
+    callback(municipalities)
   })
 }
 

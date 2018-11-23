@@ -9,8 +9,8 @@
       <a href="/regions/canton/{{canton}}" class="region">{{canton}}</a>
     {% endfor %}
     <h2>Gemeinden</h2>
-    <a href="#" class="region">Aargau</a>
-    <a href="#" class="region">Luzern</a>
-    <a href="#" class="region">Zürich</a>
+    {% for municipality in municipalities %}
+      <a href="/regions/municipality/{{municipality}}" class="region">{{municipality}}</a>
+    {% endfor %}
   </div>
 {% endblock %}
