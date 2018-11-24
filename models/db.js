@@ -1,5 +1,5 @@
 const sortJsonArray = require('sort-json-array')
-const nano = require('nano')('http://admin:password@localhost:5984')
+const nano = require('nano')('http://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@' + process.env.DB_HOST + ':' +process.env.DB_PORT)
 
 const votes = nano.db.use('votes');
 const cantons = nano.db.use('cantons');

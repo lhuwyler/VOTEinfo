@@ -13,7 +13,7 @@ https://chvote.ch
 - SASS (falls CSS Änderungen getätigt werden)
 
 ## Setup
-Zum lokalen starten von CHvote:
+Zum lokalen starten von CHvote und Verbinden mit einer bestehenden Datenbank:
 ```bash
 # Projekt Clonen
 git clone https://github.com/lhuwyler/CHvote.git
@@ -21,6 +21,10 @@ git clone https://github.com/lhuwyler/CHvote.git
 cd CHvote
 # Dependencies installieren
 npm install
+# Config File (dotenv) aus Vorlage erstellen
+cp .env.example .env
+# Datenbank-Optionen in Config-File setzen
+nano .env
 # Falls noch nicht vorhanden: nodemon installieren
 npm -g install nodemon
 # App starten
