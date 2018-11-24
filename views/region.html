@@ -7,7 +7,7 @@
     <h2>Durchschnittliche Stimmbeteiligung</h2>
     <h2>Gesamtresultate</h2>
     {% for vote in votes %}
-      <a href="/votes/{{ vote._id }}">
+      <a href="/votes/{{ vote.date }}/{{ vote.vote }}">
         <div class="vote">
           <span class="vote__date">{{ vote.date }}</span>
           <h3>{{ vote.vote }}</h3>

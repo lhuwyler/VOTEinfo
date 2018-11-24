@@ -3,7 +3,7 @@
 {% block subNav %}
   <ul>
     <li><strong>Jahr:</strong></li>
-    {% for i in range(2018, 1866, -1) -%}
+    {% for i in range(2018, 2000, -1) -%}
       <li><a class="{{ "active" if year == i }}" href="/votes?y={{i}}">{{i}}</a></li>
     {%- endfor %}
   </ul>
@@ -15,7 +15,7 @@
     <h1>Abstimmungen</h1>
     <h2>{{ year }}</h2>
     {% for vote in votes %}
-      <a href="/votes/{{ vote._id }}">
+      <a href="/votes/{{ vote.date }}/{{ vote.vote }}">
         <div class="vote">
           <span class="vote__date">{{ vote.date }}</span>
           <h3>{{ vote.vote }}</h3>

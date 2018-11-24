@@ -6,7 +6,7 @@ let router = express.Router()
 
 router.get('/', function(req, res, next) {
   // Get Year to show. If no year, use 2017
-  let year = 2017
+  let year = '2018'
   if (req.query.y){
     year = req.query.y
   }
@@ -20,9 +20,9 @@ router.get('/', function(req, res, next) {
   })
 });
 
-router.get('/:id', function(req, res, next) {
+router.get('/:date/:name/', function(req, res, next) {
   // Get the vote the user clicked on
-  db.getVoteById(req.params.id, function(vote){
+  db.getVoteByName(req.params.name, req.params.date, function(vote){
     // Get results from all cantons for that vote
     db.getCantonsByVote(vote.vote, vote.date, function(cantons){
       // Calculate Majority of the Cantons
@@ -31,15 +31,15 @@ router.get('/:id', function(req, res, next) {
       let halfCantons = [
         "Obwalden",
         "Nidwalden",
-        "Basel-Stadt",
-        "Basel-Landschaft",
+        "BaselStadt",
+        "BaselLandschaft",
         "Appenzell Innerrhoden",
         "Appenzell Ausserrhoden"
       ]
       // Cast a vote for every canton that said yes (or 0.5 for every half canton)
       cantons.forEach(function(canton){
         if (parseInt(canton.votesYes) > parseInt(canton.votesNo)){
-          cantonVote = cantonVote + 1
+          cantonVote = cantonVote + 1.0
           if (halfCantons.includes(canton.canton)){
             cantonVote = cantonVote - 0.5
           }
