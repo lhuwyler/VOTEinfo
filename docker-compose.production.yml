@@ -9,9 +9,17 @@ services:
       - dbdata:/opt/couchdb/data
       - dbconfig:/opt/couchdb/etc
     environment:
-      COUCHDB_USER: admin
-      COUCHDB_PASSWORD: password
       NODENAME: chvote01
+  node:
+    image: "node:8"
+    working_dir: /chvote
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./:/chvote
+    expose:
+      - "80:80"
+    command: "node index.js"
 
 volumes:
   dbdata:

@@ -26,11 +26,14 @@ router.get('/municipality/:municipality', function(req, res, next) {
 })
 
 router.get('/canton/:canton', function(req, res, next) {
-  db.getVotesByCanton(req.params.canton, function(votes){
-    res.render('region.html', {
-      page: 'regions',
-      name: req.params.canton,
-      votes: votes
+  db.getAvgVoterTurnout('canton', 'Aargau', function(avgTurnout){
+    console.log(avgTurnout)
+    db.getVotesByCanton(req.params.canton, function(votes){
+      res.render('region.html', {
+        page: 'regions',
+        name: req.params.canton,
+        votes: votes
+      })
     })
   })
 })
