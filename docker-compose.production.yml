@@ -21,7 +21,7 @@ services:
       - "3000"
     ports:
       - "80:3000"
-    command: "node index.js"
+    command: "nodemon index.js"
 
 volumes:
   dbdata:
