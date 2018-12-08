@@ -118,27 +118,7 @@ functions.getVotesByMunicipality = function(municipality, callback) {
 
 // Get average voter turnout
 functions.getAvgVoterTurnout = function(regionType, regionName, callback){
-  let canton = ''
-  let municipality = ''
 
-  if (regionType == 'canton'){
-    canton = regionName
-  }
-  if (regionType == 'municipality'){
-    municipality = regionName
-  }
-
-  const q = {
-    selector: {
-      canton: {"$eq": canton},
-      municipality: {"$eq": municipality}
-    },
-    fields: [ "voterTurnOut" ],
-    limit: 10000
-  };
-  municipalities.find(q).then((docs) => {
-    callback(docs);
-  });
 }
 
 module.exports = functions
