@@ -10,17 +10,17 @@ services:
       - dbdata:/opt/couchdb/data
       - dbconfig:/opt/couchdb/etc
     environment:
-      NODENAME: chvote01
+      NODENAME: voteinfo01
 
   node:
     image: "node:8"
     environment:
-      - VIRTUAL_HOST=chvote.ch
-      - LETSENCRYPT_HOST=chvote.ch
+      - VIRTUAL_HOST=voteinfo.ch
+      - LETSENCRYPT_HOST=voteinfo.ch
       - LETSENCRYPT_EMAIL=lukas.huwyler@gmail.com
     volumes:
-      - ./:/chvote
-    working_dir: /chvote
+      - ./:/voteinfo
+    working_dir: /voteinfo
     expose:
       - "3000"
     command: "nodemon index.js"

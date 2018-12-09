@@ -1,11 +1,11 @@
-# CHvote
+# VOTEinfo
 So stimmt die Schweiz.
 
-CHvote ist eine Online-Plattform, die alle Daten über Schweizer Abstimmungen kompakt zusammenfasst und präsentiert.
+VOTEinfo ist eine Online-Plattform, die alle Daten über Schweizer Abstimmungen kompakt zusammenfasst und präsentiert.
 
-https://chvote.ch
+https://voteinfo.ch
 
-![CHvote Start Screen](assets/images/chvote_screenshot.png "CHvote Start Screen")
+![VOTEinfo Start Screen](assets/images/voteinfo_screenshot.png "VOTEinfo Start Screen")
 
 ## Requirements
 - NodeJS (Version 10.13.0 LTS)
@@ -13,12 +13,12 @@ https://chvote.ch
 - SASS (falls CSS Änderungen getätigt werden)
 
 ## Setup
-Zum lokalen starten von CHvote und Verbinden mit einer bestehenden Datenbank:
+Zum lokalen starten von VOTEinfo und Verbinden mit einer bestehenden Datenbank:
 ```bash
 # Projekt Clonen
-git clone https://github.com/lhuwyler/CHvote.git
+git clone https://github.com/lhuwyler/VOTEinfo.git
 # Zum Projektverzeichnis wechseln
-cd CHvote
+cd VOTEinfo
 # Dependencies installieren
 npm install
 # Config File (dotenv) aus Vorlage erstellen
@@ -29,7 +29,7 @@ nano .env
 npm -g install nodemon
 # App starten
 nodemon index.js
-# CHvote läuft nun unter localhost:3000
+# VOTEinfo läuft nun unter localhost:3000
 ```
 
 ## Build
@@ -68,7 +68,7 @@ Enthält die Stammdaten vom Bundesamt für Statistik und die Python Scripts, um 
 Docker-Compose file für lokale Entwicklungsumgebung (startet lokalen CouchDB server)
 
 #### index.js
-Einstiegspunkt für die CHvote App. Definiert und startet den Webserver, lädt die Controller und matched diese zu ihren Stamm-URLs (Routes).
+Einstiegspunkt für die VOTEinfo App. Definiert und startet den Webserver, lädt die Controller und matched diese zu ihren Stamm-URLs (Routes).
 
 #### package.json
 Projekt- & Dependency-Definition für NPM. Gleich wie pom.xml, nur ohne Kopfschmerzen.
