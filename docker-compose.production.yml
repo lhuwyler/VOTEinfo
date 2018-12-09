@@ -14,6 +14,7 @@ services:
 
   node:
     image: "node:8"
+    restart: always
     environment:
       - VIRTUAL_HOST=voteinfo.ch
       - LETSENCRYPT_HOST=voteinfo.ch
@@ -45,8 +46,6 @@ services:
       - certs:/etc/nginx/certs:ro
       - vhosts:/etc/nginx/vhost.d
       - html:/usr/share/nginx/html
-    volumes_from:
-      - "nginx-proxy"
 
 volumes:
   dbdata:
