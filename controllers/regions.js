@@ -26,6 +26,7 @@ router.get('/municipality/:municipality', function(req, res, next) {
 })
 
 router.get('/canton/:canton', function(req, res, next) {
+  console.log(req.params.canton)
   db.getAvgVoterTurnout('canton', 'Aargau', function(avgTurnout){
     console.log(avgTurnout)
     db.getVotesByCanton(req.params.canton, function(votes){

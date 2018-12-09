@@ -1,6 +1,5 @@
 const sortJsonArray = require('sort-json-array')
-const nano = require('nano')('http://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@' + process.env.DB_HOST + ':' +process.env.DB_PORT)
-
+const nano = require('nano')('http://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@' + process.env.DB_HOST + ':' + process.env.DB_PORT)
 const votes = nano.db.use('votes');
 const cantons = nano.db.use('cantons');
 const municipalities = nano.db.use('votes_municipalities');
@@ -118,7 +117,7 @@ functions.getVotesByMunicipality = function(municipality, callback) {
 
 // Get average voter turnout
 functions.getAvgVoterTurnout = function(regionType, regionName, callback){
-
+  callback(0)
 }
 
 module.exports = functions
