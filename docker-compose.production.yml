@@ -16,7 +16,7 @@ services:
     image: "node:8"
     restart: always
     environment:
-      - VIRTUAL_HOST=voteinfo.ch
+      - VIRTUAL_HOST=voteinfo.ch,www.voteinfo.ch
       - LETSENCRYPT_HOST=voteinfo.ch
       - LETSENCRYPT_EMAIL=lukas.huwyler@gmail.com
     volumes:
@@ -24,7 +24,7 @@ services:
     working_dir: /voteinfo
     expose:
       - "3000"
-    command: "nodemon index.js"
+    command: "node index.js"
 
   proxy:
     image: jwilder/nginx-proxy
@@ -38,12 +38,14 @@ services:
       - certs:/etc/nginx/certs:ro
       - vhosts:/etc/nginx/vhost.d
       - html:/usr/share/nginx/html
+    labels:
+      - "com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy"
 
   letsencrypt:
     image: jrcs/letsencrypt-nginx-proxy-companion
     volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-      - certs:/etc/nginx/certs:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - certs:/etc/nginx/certs:rw
       - vhosts:/etc/nginx/vhost.d
       - html:/usr/share/nginx/html
 
