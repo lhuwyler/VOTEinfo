@@ -1,6 +1,7 @@
 version: "3"
 
 services:
+
   couchdb:
     image: couchdb
     ports:
@@ -10,18 +11,39 @@ services:
       - dbconfig:/opt/couchdb/etc
     environment:
       NODENAME: chvote01
+
   node:
     image: "node:8"
-    working_dir: /chvote
     environment:
-      - NODE_ENV=production
+      - VIRTUAL_HOST=chvote.ch
+      - LETSENCRYPT_HOST=chvote.ch
+      - LETSENCRYPT_EMAIL=lukas.huwyler@gmail.com
     volumes:
       - ./:/chvote
+    working_dir: /chvote
     expose:
       - "3000"
-    ports:
-      - "80:3000"
     command: "nodemon index.js"
+
+  proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - ENABLE_IPV6=true
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - /etc/ssl/private:/etc/nginx/certs:ro
+      - /etc/nginx/vhost.d
+      - /usr/share/nginx/html¨
+
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    volumes_from:
+      - "nginx-proxy"
 
 volumes:
   dbdata:
