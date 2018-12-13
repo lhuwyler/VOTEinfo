@@ -133,10 +133,10 @@ header {
 
 .vote {
   background-color: $white;
-  padding: 15px;
+  padding: 25px;
   color: $darkgrey;
   transition: 0.3s all ease;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
 a .vote:hover {
@@ -149,7 +149,7 @@ a .vote:hover {
   padding: 15px;
   color: $darkgrey;
   transition: 0.3s all ease;
-  margin-bottom: 25px;
+  margin: 25px 0;
   font-size: 20px;
 
   &:hover {

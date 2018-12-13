@@ -5,6 +5,9 @@
     <h1>{{ name }}</h1>
     <p>Übersicht über die letzten Jahre seit 2001.</p>
     <h2>Durchschnittliche Stimmbeteiligung</h2>
+    <div class="vote">
+      <div class="vote__turnout" data-percent="{{ avgTurnout }}"></div>
+    </div>
     <h2>Gesamtresultate</h2>
     {% for vote in votes %}
       <a href="/votes/{{ vote.date }}/{{ vote.vote }}">

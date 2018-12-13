@@ -16,15 +16,15 @@
     <div class="canton_turnOut" data-percent="{% for canton in cantons %}{{canton.voterTurnOut}},{% endfor %}"></div>
     <h2>Grösste Befürworter</h2>
     <ol class="ranking ranking--pro">
-      <a href="#"><li>{{ ranking[0].canton}} ({{ ranking[0].votesYesPercent }}%)</li></a>
-      <a href="#"><li>{{ ranking[1].canton}} ({{ ranking[1].votesYesPercent }}%)</li></a>
-      <a href="#"><li>{{ ranking[2].canton}} ({{ ranking[2].votesYesPercent }}%)</li></a>
+      <a href="/regions/canton/{{ ranking[0].canton}}"><li>{{ ranking[0].canton}} ({{ ranking[0].votesYesPercent }}%)</li></a>
+      <a href="/regions/canton/{{ ranking[1].canton}}"><li>{{ ranking[1].canton}} ({{ ranking[1].votesYesPercent }}%)</li></a>
+      <a href="/regions/canton/{{ ranking[2].canton}}"><li>{{ ranking[2].canton}} ({{ ranking[2].votesYesPercent }}%)</li></a>
     </ol>
     <h2>Grösste Gegner</h2>
     <ol class="ranking ranking--contra">
-      <a href="#"><li>{{ ranking[25].canton}} ({{ ranking[25].votesYesPercent }}%)</li></a>
-      <a href="#"><li>{{ ranking[24].canton}} ({{ ranking[24].votesYesPercent }}%)</li></a>
-      <a href="#"><li>{{ ranking[23].canton}} ({{ ranking[23].votesYesPercent }}%)</li></a>
+      <a href="/regions/canton/{{ ranking[25].canton}}"><li>{{ ranking[25].canton}} ({{ ranking[25].votesYesPercent }}%)</li></a>
+      <a href="/regions/canton/{{ ranking[24].canton}}"><li>{{ ranking[24].canton}} ({{ ranking[24].votesYesPercent }}%)</li></a>
+      <a href="/regions/canton/{{ ranking[23].canton}}"><li>{{ ranking[23].canton}} ({{ ranking[23].votesYesPercent }}%)</li></a>
     </ol>
   </div>
 {% endblock %}

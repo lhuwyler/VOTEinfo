@@ -1268,10 +1268,10 @@ header {
 
 .vote {
   background-color: #ffffff;
-  padding: 15px;
+  padding: 25px;
   color: #1f222a;
   transition: 0.3s all ease;
-  margin-bottom: 25px; }
+  margin-bottom: 30px; }
 
 a .vote:hover {
   box-shadow: 0 0 30px -5px #aaa; }
@@ -1282,7 +1282,7 @@ a .vote:hover {
   padding: 15px;
   color: #1f222a;
   transition: 0.3s all ease;
-  margin-bottom: 25px;
+  margin: 25px 0;
   font-size: 20px; }
   .region:hover {
     box-shadow: 0 0 30px -5px #aaa; }
