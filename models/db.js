@@ -116,7 +116,7 @@ functions.getVotesByMunicipality = function(municipality, callback) {
 }
 
 // Get average voter turnout
-functions.getAvgVoterTurnout = function(regionType, regionName, callback){
+functions.getAvgVoterTurnout = function(regionName, callback){
   municipalities.view('CHvote', 'voter_turnout', {
     key: regionName
   }).then((body) => {

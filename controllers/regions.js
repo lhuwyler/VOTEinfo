@@ -16,17 +16,20 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/municipality/:municipality', function(req, res, next) {
-  db.getVotesByMunicipality(req.params.municipality, function(votes){
-    res.render('region.html', {
-      page: 'regions',
-      name: req.params.municipality,
-      votes: votes
+  db.getAvgVoterTurnout(req.params.municipality, function(avgTurnout){
+    db.getVotesByMunicipality(req.params.municipality, function(votes){
+      res.render('region.html', {
+        page: 'regions',
+        name: req.params.municipality,
+        avgTurnout: avgTurnout,
+        votes: votes
+      })
     })
   })
 })
 
 router.get('/canton/:canton', function(req, res, next) {
-  db.getAvgVoterTurnout('canton', 'Aargau', function(avgTurnout){
+  db.getAvgVoterTurnout(req.params.canton, function(avgTurnout){
     db.getVotesByCanton(req.params.canton, function(votes){
       res.render('region.html', {
         page: 'regions',
@@ -39,11 +42,14 @@ router.get('/canton/:canton', function(req, res, next) {
 })
 
 router.get('/switzerland', function(req, res, next) {
-  db.getAllVotes(function(votes){
-    res.render('region.html', {
-      page: 'regions',
-      name: 'Switzerland',
-      votes: votes
+  db.getAvgVoterTurnout('Schweiz', function(avgTurnout){
+    db.getAllVotes(function(votes){
+      res.render('region.html', {
+        page: 'regions',
+        name: 'Schweiz',
+        avgTurnout: avgTurnout,
+        votes: votes
+      })
     })
   })
 })
